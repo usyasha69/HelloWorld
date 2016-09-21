@@ -9,6 +9,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView textView;
 
+    private static final String TEXT_VIEW_KEY = "Text view";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,5 +35,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 textView.setText("");
                 break;
         }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        textView.setText(savedInstanceState.getString(TEXT_VIEW_KEY));
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString(TEXT_VIEW_KEY, textView.getText().toString());
     }
 }
