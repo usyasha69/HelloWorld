@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HelloWorld</string>
+    <string name="set_text_button">Set text</string>
+    <string name="clear_button">clear</string>
+</resources>
